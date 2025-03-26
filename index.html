@@ -1,0 +1,68 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Login Form
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      @apply flex justify-center items-center h-screen bg-gradient-to-r from-gray-100 to-gray-200;
+    }
+  </style>
+ </head>
+ <body>
+  <div class="bg-white w-full max-w-md p-8 rounded-lg shadow-lg text-center">
+   <img alt="Company logo placeholder" class="mx-auto mb-6" height="100" src="index.image logo.png" width="100"/>
+   <h2 class="text-3xl font-semibold text-gray-800 mb-6">
+    Login
+   </h2>
+   <form class="space-y-6" id="login-form">
+    <div class="relative">
+     <input class="w-full p-4 pl-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" id="login-email" placeholder="Email" required="" type="email"/>
+     <i class="fas fa-envelope absolute top-4 left-4 text-gray-400">
+     </i>
+    </div>
+    <div class="relative">
+     <input class="w-full p-4 pl-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" id="login-password" placeholder="Password" required="" type="password"/>
+     <i class="fas fa-lock absolute top-4 left-4 text-gray-400">
+     </i>
+    </div>
+    <button class="w-full p-4 bg-blue-600 text-white rounded-full hover:bg-blue-700" type="submit">
+     Login
+    </button>
+   </form>
+   <p class="text-sm text-gray-600 mt-4">
+    Don't have an account?
+    <a class="text-blue-600 font-bold" href="index1signup.html">
+     Sign up
+    </a>
+   </p>
+   <p class="text-sm text-gray-600 mt-2">
+    <a class="text-blue-600 font-bold" href="index1forgot.html">
+     Forgot password?
+    </a>
+   </p>
+  </div>
+  <script>
+   document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const userData = JSON.parse(localStorage.getItem(email));
+
+      if (userData && userData.password === password) {
+        alert("Welcome to ចែរិទ្ធ លក់អីវ៉ានចាប់ហួយ ");
+        window.location.href = "indexhome.html"; 
+      } else {
+        alert("Invalid credentials! Please try again.");
+      }
+    });
+  </script>
+ </body>
+</html>
